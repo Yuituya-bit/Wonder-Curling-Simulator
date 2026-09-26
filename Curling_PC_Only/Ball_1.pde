@@ -192,12 +192,11 @@ class Ball {
     return dis;
   }
   int bs(){
-    int bs_test;
-    if(velocity.x <= 0.001 && velocity.y <= 0.001){
-      bs_test = 0;
-    } else {
-      bs_test = 1;
-    }
-    return bs_test;
+  // 絶対値での静止判定
+  if(abs(velocity.x) < 0.01 && abs(velocity.y) < 0.01){
+    return 0; // 静止
+  } else {
+    return 1; // 移動中
   }
+}
 }

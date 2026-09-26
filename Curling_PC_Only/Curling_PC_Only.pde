@@ -614,7 +614,7 @@ void draw() {
     if (press_text > 60) {
       textSize(80); 
       textAlign(CENTER, CENTER); 
-      text("Press Q or \\ Key", width/2, 3*height/4);
+      text("Press Q+W or \\+↑ Key", width/2, 3*height/4);
     }
     if (press_text >= 120) {
       press_text = 0;
@@ -691,12 +691,13 @@ void draw() {
     pc_red2 = 255;
     pc_green1 = 0;
     pc_green2 = 0;
+    for (int i = 0; i < 6; i++) {
+      balls[i].velocity = new PVector(0, 0); // 速度をクリア
+    }
   }
 }
 
-// ------------------------------------------
-// キーボード入力処理（キー押下判定）
-// ------------------------------------------
+// キーボード入力処理
 void keyPressed() {
   // Player 1 (左手側: WASD, Q)
   if (key == 'a' || key == 'A') key1_Y = true;    // 左 (A)
